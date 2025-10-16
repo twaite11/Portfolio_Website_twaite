@@ -1,0 +1,31 @@
+/* src/components/MonitorFrame/MonitorFrame.module.css */
+.monitorContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #2c2c2c; /* Dark background for contrast */
+    padding: 50px;
+}
+
+.monitorBezel {
+    background-color: #d8d8d8; /* Old school computer beige */
+    border: 2px solid #b0b0b0;
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5), 0 10px 20px rgba(0, 0, 0, 0.3);
+    width: 95vw;
+    max-width: 1400px;
+}
+
+.monitorScreen {
+    background-color: #000; /* Screen is black when 'off' */
+    border: 4px solid #333;
+    border-radius: 10px;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.7);
+    width: 100%;
+    /* Maintain a 4:3 aspect ratio for the old-school feel */
+    aspect-ratio: 4 / 3;
+    position: relative; /* Important for positioning the desktop inside */
+    overflow: hidden; /* Ensures nothing spills out of the screen */
+}
