@@ -1,10 +1,20 @@
-/* src/components/VistaDesktop/VistaDesktop.module.css */
+/* ... keep all existing styles ... */
 .desktop {
     width: 100%;
     height: 100%;
     background-size: cover;
     background-position: center;
-    position: relative; /* Parent for the absolute positioned taskbar */
+    position: relative;
+}
+
+/* This is the new style to add */
+.desktopIcons {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .taskbar {
@@ -14,7 +24,7 @@
     width: 100%;
     height: 40px;
     background-color: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(15px); /* This creates the glass effect! */
+    backdrop-filter: blur(15px);
     border-top: 1px solid rgba(255, 255, 255, 0.3);
     display: flex;
     align-items: center;
@@ -31,7 +41,32 @@
 .clock {
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 14px;
+    font-size: 12px;
     padding-right: 10px;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.2;
+}
+
+/* flicker animation -- work in progress sheesh */
+@keyframes flicker {
+    0%   { opacity: 0.4; }
+    20%  { opacity: 1; }
+    40%  { opacity: 0.7; }
+    60%  { opacity: 1; }
+    80%  { opacity: 0.8; }
+    100% { opacity: 1; }
+}
+/* cover */
+.desktop {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    /* Add this line to trigger the animation */
+    animation: flicker 0.5s ease-in-out;
 }

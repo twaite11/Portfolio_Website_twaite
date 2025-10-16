@@ -1,31 +1,123 @@
-/* src/components/MonitorFrame/MonitorFrame.module.css */
 .monitorContainer {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background-color: #2c2c2c; /* Dark background for contrast */
-    padding: 50px;
+    min-height: 100svh;
+    background-color: #2c2c2c;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.monitorAssembly {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .monitorBezel {
-    background-color: #d8d8d8; /* Old school computer beige */
-    border: 2px solid #b0b0b0;
-    border-radius: 25px;
-    padding: 30px;
-    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5), 0 10px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #EAE8D4 0%, #D2D0C4 100%);
+    border: 25px solid #A09D8B;
+    border-radius: 30px;
+    box-shadow:
+            inset 0 0 30px rgba(0, 0, 0, 0.6),
+            0 20px 40px rgba(0, 0, 0, 0.5),
+            inset 5px 5px 15px rgba(255, 255, 255, 0.5),
+            inset -5px -5px 15px rgba(0, 0, 0, 0.3);
     width: 95vw;
     max-width: 1400px;
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .monitorScreen {
-    background-color: #000; /* Screen is black when 'off' */
-    border: 4px solid #333;
-    border-radius: 10px;
-    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.7);
+    background-color: #000;
+    border: 6px solid #222;
+    border-radius: 8px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 0, 0, 0.4);
     width: 100%;
-    /* Maintain a 4:3 aspect ratio for the old-school feel */
     aspect-ratio: 4 / 3;
-    position: relative; /* Important for positioning the desktop inside */
-    overflow: hidden; /* Ensures nothing spills out of the screen */
+    position: relative;
+    overflow: hidden;
+}
+
+.monitorStand {
+    width: 35%;
+    height: 35px;
+    background: linear-gradient(to top, #A09D8B, #D2D0C4);
+    margin-top: -20px;
+    border: 3px solid #8A8879;
+    border-top: none;
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+    position: relative;
+}
+
+.powerOffScreen {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    padding: 25px;
+    box-sizing: border-box;
+    font-family: 'Lucida Console', 'Courier New', monospace;
+    font-size: 18px;
+    color: #33FF33;
+    position: relative;
+}
+
+.glare {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 60% 35%, rgba(180, 200, 255, 0.1) 0%, rgba(255, 255, 255, 0) 20%);
+    transform: rotate(20deg);
+    pointer-events: none;
+}
+
+/* --- SIMPLIFIED & CORRECTED ANIMATION --- */
+.bootTextContainer p {
+    margin: 0 0 8px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    border-right: .1em solid #33FF33; /* The cursor */
+    animation: typing 2s forwards, blink .75s infinite; /* Base animation properties */
+}
+
+/* Set specific durations and steps for each line */
+.typewriter1 {
+    animation-duration: 2.5s;
+    animation-timing-function: steps(33), step-end;
+}
+
+.typewriter2 {
+    animation-duration: 1.5s;
+    animation-timing-function: steps(20), step-end;
+    animation-delay: 2.5s;
+}
+
+.typewriter3 {
+    animation-duration: 1.4s;
+    animation-timing-function: steps(18), step-end;
+    animation-delay: 4.0s; /* 2.5s + 1.5s */
+}
+
+.typewriter4 {
+    animation-duration: 1.3s;
+    animation-timing-function: steps(17), step-end;
+    animation-delay: 5.4s; /* 4.0s + 1.4s */
+    animation-iteration-count: 1, infinite; /* Last line keeps blinking */
+}
+
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink {
+    50% { border-color: transparent }
 }

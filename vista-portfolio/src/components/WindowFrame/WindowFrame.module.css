@@ -1,0 +1,81 @@
+/* Main window container */
+.window {
+    position: absolute;
+    background-color: #ECE9D8;
+    border: 2px solid;
+    border-top-color: #FFFFFF;
+    border-left-color: #FFFFFF;
+    border-right-color: #404040;
+    border-bottom-color: #404040;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Classic XP blue title bar */
+.titleBar {
+    background: linear-gradient(to right, #0055E7, #3B92F3);
+    padding: 3px 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-family: "Tahoma", sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+    height: 28px;
+    box-sizing: border-box;
+}
+
+.titleBarText {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.titleBarIcon {
+    width: 16px;
+    height: 16px;
+}
+
+/* Controls (minimize, maximize, close) */
+.titleBarControls {
+    display: flex;
+}
+
+.controlButton {
+    background-color: #D34C38;
+    color: white;
+    border: 1px solid;
+    border-top-color: #FFFFFF;
+    border-left-color: #FFFFFF;
+    border-right-color: #404040;
+    border-bottom-color: #404040;
+    width: 22px;
+    height: 22px;
+    font-family: "Marlett", "Arial";
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: #E35242;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+}
+
+.closeButton {
+    background: #E35242;
+}
+
+.controlButton:not(.closeButton) {
+    background: #277FE3;
+}
+
+/* Main content area */
+.windowBody {
+    flex-grow: 1;
+    /* Removed command prompt specific styles to make the window generic */
+    padding: 0;
+    overflow: hidden; /* The child component will now handle its own scrolling */
+}
+

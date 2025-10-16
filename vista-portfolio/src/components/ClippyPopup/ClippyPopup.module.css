@@ -1,0 +1,66 @@
+.clippyContainer {
+    position: absolute;
+    bottom: 60px;
+    right: 20px;
+    display: flex;
+    align-items: flex-end;
+    z-index: 1000;
+    animation: slideIn 0.5s ease-out;
+}
+
+.clippyImage {
+    width: 120px;
+    height: auto;
+}
+
+.speechBubble {
+    background-color: #FFFFE1;
+    border: 1px solid #000;
+    border-radius: 8px;
+    padding: 15px;
+    width: 250px;
+    margin-right: -20px;
+    position: relative;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    font-family: 'Tahoma', sans-serif;
+    font-size: 14px;
+}
+
+.speechBubble::after {
+    content: '';
+    position: absolute;
+    bottom: 20px;
+    right: -10px;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid #000;
+}
+
+.speechBubble p {
+    margin: 0 0 15px 0;
+}
+
+.speechBubble button {
+    background-color: #f0f0f0;
+    border: 1px solid #707070;
+    border-radius: 3px;
+    padding: 4px 12px;
+    cursor: pointer;
+}
+
+.speechBubble button:hover {
+    background-color: #e0e0e0;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

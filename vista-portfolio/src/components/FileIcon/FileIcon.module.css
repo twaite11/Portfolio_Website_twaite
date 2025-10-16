@@ -1,0 +1,38 @@
+.iconLink {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+}
+
+.iconLink:hover {
+    background-color: #316AC5; /* Classic XP selection blue */
+    border: 1px dotted #1E4E9A;
+}
+
+.iconLink:hover .iconTitle {
+    color: white;
+}
+
+.icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80px;
+    text-align: center;
+}
+
+.iconImage {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 5px;
+}
+
+.iconTitle {
+    color: #000;
+    font-family: 'Tahoma', sans-serif;
+    font-size: 12px;
+    word-break: break-word;
+}

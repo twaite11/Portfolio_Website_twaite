@@ -1,0 +1,82 @@
+.banner {
+    position: absolute;
+    bottom: 50px; /* Position it right above the taskbar */
+    left: 10px;
+    width: 500px; /* Even wider */
+    background-color: #FFFFE1; /* Classic XP balloon color */
+    border: 1px solid #000;
+    border-radius: 10px; /* Slightly more rounded */
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.35);
+    z-index: 100;
+    font-family: 'Tahoma', sans-serif;
+    font-size: 16px; /* Larger base font size */
+    color: #000;
+}
+
+/* The little tail on the balloon */
+.banner::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 25px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #000;
+}
+
+.bannerContent {
+    padding: 20px; /* More internal padding */
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.icon {
+    width: 48px; /* Significantly larger icon */
+    height: 48px;
+    margin-right: 15px;
+    flex-shrink: 0; /* Prevent icon from shrinking */
+}
+
+.title {
+    flex-grow: 1;
+    font-size: 18px; /* Larger title font */
+}
+
+.closeButton {
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #888;
+    cursor: pointer;
+    padding: 0 8px;
+    line-height: 1;
+    align-self: flex-start; /* Align to the top of the header */
+}
+
+.closeButton:hover {
+    color: #000;
+    border-color: #c0c0c0;
+    background-color: #f0f0f0;
+}
+
+.body p {
+    margin: 0 0 15px 0;
+    line-height: 1.6; /* More spacious line height */
+}
+
+.body p:last-child {
+    margin-bottom: 0;
+}
+
+.body b {
+    font-weight: bold;
+}
