@@ -1,8 +1,6 @@
 import React from 'react';
 import styles from './MyComputerWindow.module.css';
 import FileIcon from '../FileIcon/FileIcon';
-
-// Import the generic icon you added to the assets folder
 import fileIcon from '../../assets/file-icon.png';
 
 const MyComputerWindow = () => {

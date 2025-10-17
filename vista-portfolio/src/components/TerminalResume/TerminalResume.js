@@ -8,32 +8,43 @@ const TerminalResume = () => {
     const inputRef = useRef(null);
 
     const resumeText = `
-Michael Scott - Regional Manager
 
-SUMMARY
--------
-Great boss. Best boss. The World's Best Boss, in fact. 
-I have been the regional manager of the Dunder Mifflin Scranton branch for years. 
-I am a great leader and a great friend.
+Tyler Waite - AI & Software Engineer
 
 EXPERIENCE
 ----------
-Dunder Mifflin, Scranton, PA - Regional Manager
-- Increased sales by... a lot.
-- Created a fun and productive work environment.
-- Won multiple Dundie awards.
+Metagenomi, Emeryville, CA - Senior Research Associate (Feb2022-Feb2025)
+    
+- Designed deep-learning analysis pipeline using Python, Scanpy, and Tensorflow
+- Implemented GCNs to model spatial relationships and cell-cell interactions 
+- Managed cloud infrastructure development in AWS
+- Feature development for in house analytics platform
+
+Genentech, San Francisco, CA -  Researcher II (Feb2021-Feb2022)
+    
+- Built a bioinformatics pipeline (Python) for multivariate feature analysis  
+- Implemented GCNs to model spatial relationships and cell-cell interactions 
+- Piloted Spatial Transcriptomics technology 
+
+Unity Biotechnology, San Francisco, CA -  Researcher I and II (Sep2019-Feb2021)
+    
+- Visiopharm Deep Learning Software Beta Tester  
+- Fine-tuned application protocol packages via iterative training and correction 
+- Trained Neural network models for retina image detection and classification  
 
 EDUCATION
 ---------
-School of Hard Knocks
+Western Governors University (WGU): Master of Science(MS) in AI Engineering
+
+Western Governors University (WGU): Bachelors of Science(BS) in Software Engineering
 
 SKILLS
 ------
-- Management
-- Sales
-- Motivation
-- Comedy
-- Magic
+Python, TensorFlow, PyTorch, Scikit-learn, Machine Learning Algorithms, Deep Learning, 
+Natural Language Processing (NLP), Computer Vision, Data Structures, Algorithms, SQL, Git, 
+Docker, Kubernetes, Cloud Computing (AWS, GCP, or Azure), MLOps, Data Preprocessing, 
+Model Deployment, REST APIs, Linear Algebra, and Statistics.
+
   `;
 
     useEffect(() => {

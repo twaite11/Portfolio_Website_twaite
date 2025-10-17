@@ -1,17 +1,19 @@
 import React from 'react';
 import styles from './MyDocumentsWindow.module.css';
-import FileIcon from '../FileIcon/FileIcon'; // We'll reuse this component
+import FileIcon from '../FileIcon/FileIcon';
 import folderIcon from '../../assets/folder-icon-xp.png';
 import fileIcon from '../../assets/file-icon.png';
 
-const MyDocumentsWindow = () => {
-    // TODO: Replace with your actual project names and URLs
+const MyDocumentsWindow = ({ onOpenFile }) => {
+    // The full project data is now managed in VistaDesktop.js
+    // This component now just receives the handler to open a file.
     const projects = [
-        { name: 'Project Alpha', href: '#' },
-        { name: 'AI Chatbot', href: '#' },
-        { name: 'E-commerce Platform', href: '#' },
-        { name: 'Data Visualization Tool', href: '#' },
-        { name: 'Robotics Control System', href: '#' },
+        { id: 'proj1', name: 'AI Powered Surf Prediction App' },
+        { id: 'proj2', name: 'This Website!' },
+        { id: 'proj3', name: 'E-commerce Website' },
+        { id: 'proj4', name: 'Patent Pending: scRNA ML Pipeline' },
+        { id: 'proj5', name: 'AI Computer Vision Security System' },
+        { id: 'proj6', name: 'SpringBoot Backend App Builds' },
     ];
 
     return (
@@ -28,10 +30,10 @@ const MyDocumentsWindow = () => {
             <div className={styles.filePane}>
                 {projects.map(project => (
                     <FileIcon
-                        key={project.name}
+                        key={project.id}
                         title={project.name}
                         icon={fileIcon}
-                        href={project.href}
+                        onDoubleClick={() => onOpenFile(project.id)}
                     />
                 ))}
             </div>

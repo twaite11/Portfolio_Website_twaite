@@ -1,0 +1,17 @@
+.iconWrapper {
+    height: 100%;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.iconWrapper:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.iconWrapper img {
+    height: 28px;
+    width: auto;
+}

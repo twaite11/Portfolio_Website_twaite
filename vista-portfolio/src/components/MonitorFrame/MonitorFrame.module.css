@@ -29,6 +29,10 @@
     z-index: 2;
     padding: 20px;
     box-sizing: border-box;
+    /* --- ADDED THESE 3 LINES FOR CENTERING --- */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .monitorScreen {
@@ -77,47 +81,47 @@
     pointer-events: none;
 }
 
-/* --- SIMPLIFIED & CORRECTED ANIMATION --- */
+
+
 .bootTextContainer p {
     margin: 0 0 8px 0;
     white-space: nowrap;
     overflow: hidden;
     width: 0;
-    border-right: .1em solid #33FF33; /* The cursor */
-    animation: typing 2s forwards, blink .75s infinite; /* Base animation properties */
 }
 
-/* Set specific durations and steps for each line */
 .typewriter1 {
-    animation-duration: 2.5s;
-    animation-timing-function: steps(33), step-end;
+    animation: typing1 0.5s steps(33) forwards,
+    blink .55s 3;
 }
 
 .typewriter2 {
-    animation-duration: 1.5s;
-    animation-timing-function: steps(20), step-end;
-    animation-delay: 2.5s;
+    animation: typing2 0.5s steps(22) 0.6s forwards,
+    blink .55s 0.5s 3;
 }
 
 .typewriter3 {
-    animation-duration: 1.4s;
-    animation-timing-function: steps(18), step-end;
-    animation-delay: 4.0s; /* 2.5s + 1.5s */
+    animation: typing3 0.5s steps(18) 1.1s forwards,
+    blink .55s 1.0s 2;
 }
 
 .typewriter4 {
-    animation-duration: 1.3s;
-    animation-timing-function: steps(17), step-end;
-    animation-delay: 5.4s; /* 4.0s + 1.4s */
-    animation-iteration-count: 1, infinite; /* Last line keeps blinking */
+    animation: typing4 0.5s steps(17) 1.7s forwards,
+    blink .55s 1.4s 2;
+}
+.typewriter5 {
+    animation: typing5 0.5s steps(40) 2.4s forwards,
+    blink .55s 2.3s infinite;
 }
 
 
-@keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
-}
+@keyframes typing1 { from { width: 0; } to { width: 33ch; } }
+@keyframes typing2 { from { width: 0; } to { width: 22ch; } }
+@keyframes typing3 { from { width: 0; } to { width: 18ch; } }
+@keyframes typing4 { from { width: 0; } to { width: 17ch; } }
+@keyframes typing5 { from { width: 0; } to { width: 40ch; } }
 
 @keyframes blink {
-    50% { border-color: transparent }
+    0%, 100% { border-right: .1em solid #33FF33; }
+    50% { border-right-color: transparent; }
 }
