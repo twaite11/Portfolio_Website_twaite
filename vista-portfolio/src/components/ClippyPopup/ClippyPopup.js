@@ -4,7 +4,7 @@ import clippy from '../../assets/clippy.png';
 
 const ClippyPopup = ({ onClose }) => {
     const [messages, setMessages] = useState([
-        { id: 1, text: " Hi, I'm Clippy, the nostalgic paperclip reimagined as an AI assistant. It looks like you're visiting Tyler Waite's portfolio! For information on where to start, click on the Bindows button in the bottom left corner. Or, feel free to ask me questions, or select one below", sender: 'ai' }
+        { id: 1, text: " Hi, I'm Clippy, the nostalgic paperclip reimagined as an AI assistant. For information on where to start, click on the Bindows button in the bottom left corner. Feel free to ask me questions, or select one below", sender: 'ai' }
     ]);
     const [userInput, setUserInput] = useState('');
     const [isLoading, setIsLoading] = useState(false);
