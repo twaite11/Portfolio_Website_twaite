@@ -43,3 +43,12 @@
 .error {
     color: #ff5555; /* Red for errors */
 }
+
+/* Mobile tweaks: make terminal content smaller to fit compact window */
+@media (max-width: 768px) {
+    .terminal {
+        font-size: 11px;
+        padding: 4px;
+    }
+    .initialText { margin-bottom: 6px; }
+}

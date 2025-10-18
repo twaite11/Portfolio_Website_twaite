@@ -5,6 +5,9 @@
     padding: 10px;
     border-radius: 5px;
     border: 1px solid transparent;
+    /* Improve mobile tapping responsiveness */
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .iconLink:hover {

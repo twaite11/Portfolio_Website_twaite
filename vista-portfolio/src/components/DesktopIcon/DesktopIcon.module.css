@@ -10,6 +10,9 @@
     border-radius: 6px;
     border: 1px solid transparent;
     padding: 4px;
+    /* Improve mobile tapping responsiveness */
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .icon:hover {

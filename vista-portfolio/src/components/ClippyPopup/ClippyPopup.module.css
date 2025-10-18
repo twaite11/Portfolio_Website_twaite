@@ -165,3 +165,51 @@
     background-color: #e9e9e9;
     border-color: #bbb;
 }
+
+/* Mobile/touch devices: make Clippy fit like other mobile popups */
+@media (max-width: 768px), (pointer: coarse) {
+    .clippyContainer {
+        left: 8px;
+        right: 8px;
+        bottom: calc(48px + env(safe-area-inset-bottom, 0px));
+        justify-content: flex-end;
+        /* Stack Clippy image below bubble so bubble can use full width */
+        flex-direction: column-reverse;
+        align-items: flex-end;
+        gap: 6px;
+    }
+
+    .clippyImage {
+        width: 80px;
+    }
+
+    .speechBubble {
+        width: auto;
+        max-width: 100%;
+        height: auto;
+        max-height: min(60vh, 420px);
+        margin-right: 0;
+        font-size: 13px;
+    }
+
+    .speechBubble::after {
+        /* Hide the side tail when stacked; optional subtle top divider instead */
+        display: none;
+    }
+
+    .chatWindow {
+        padding: 10px;
+    }
+
+    .message { font-size: 13px; }
+
+    .chatInputForm {
+        padding: 8px;
+    }
+
+    .chatInputForm input { padding: 7px; }
+    .chatInputForm button { padding: 7px 12px; }
+
+    .preloadedQuestions { padding: 0 8px 8px 8px; }
+    .preloadedQuestions button { font-size: 12px; padding: 8px; }
+}

@@ -28,7 +28,7 @@ import ProjectWindow from '../ProjectWindow/ProjectWindow';
 import ClippyPopup from '../ClippyPopup/ClippyPopup';
 import ClippyTaskbarIcon from '../ClippyTaskbarIcon/ClippyTaskbarIcon';
 
-// Centralize all project data here
+
 const projectData = {
     proj1: { id: 'proj1', name: 'AI Powered Surf Prediction App', href: 'https://kookpy.streamlit.app/', description: 'This web application generates a predictive surf quality score using a unique machine learning model. It trains a Convolutional Neural Network (CNN) on a library of manually labeled wave images, captured at specific beaches with recorded times and dates. This visual analysis is then mapped via a fusion layer with corresponding weather data, pulled from an API for the exact same time and location. This meteorological data is processed by a Multi-Layer Perceptron (MLP), allowing the model to provide surfers with a comprehensive and accurate forecast.', stack: ['Python', 'Heroku', 'Scikit-learn', 'pandas', 'XGBoost', 'ResNet', 'Tensorflow'], image: kookpyDemo},
     proj2: { id: 'proj2', name: 'This Website!', href: 'https://github.com/twaite11/Portfolio_Website_twaite', description: 'A retro-themed portfolio website built with React, designed to emulate the look and feel of the Windows XP/Vista operating systems. All components are custom-styled to be interactive and nostalgic.', stack: ['React', 'CSS Modules', 'JavaScript'], image: website },
@@ -52,6 +52,12 @@ const VistaDesktop = () => {
     const [isClippyOpen, setIsClippyOpen] = useState(false);
     const [openProjects, setOpenProjects] = useState([]); // State for open project windows
 
+    // Mobile detection and sizing for Resume window
+    const [isMobile, setIsMobile] = useState(false);
+    const [mobileResumeSize, setMobileResumeSize] = useState({ width: 320, height: 220 });
+    // Mobile full-screen sizing for apps like Tetris
+    const [mobileFullSize, setMobileFullSize] = useState({ width: 0, height: 0 });
+
     useEffect(() => {
         const timerId = setInterval(() => setCurrentDateTime(new Date()), 1000);
 
@@ -63,6 +69,31 @@ const VistaDesktop = () => {
             clearInterval(timerId);
             clearTimeout(clippyTimer);
         };
+    }, []);
+
+    // Track viewport size to decide mobile layout and compute compact resume window size
+    useEffect(() => {
+        const compute = () => {
+            const w = window.innerWidth || document.documentElement.clientWidth;
+            const h = window.innerHeight || document.documentElement.clientHeight;
+            const mobile = w <= 768;
+            setIsMobile(mobile);
+            if (mobile) {
+                const padding = 16; // keep away from edges within monitor frame
+                const taskbarHeight = 40; // matches taskbar css
+                const maxWidth = Math.min(340, Math.max(240, w - padding * 2));
+                const maxHeight = Math.min(240, Math.max(160, h - taskbarHeight - padding * 2));
+                setMobileResumeSize({ width: Math.round(maxWidth), height: Math.round(maxHeight) });
+
+                // Full-screen-ish sizing for immersive apps (e.g., Tetris)
+                const fullWidth = Math.max(240, w - padding * 2);
+                const fullHeight = Math.max(200, h - taskbarHeight - padding * 2);
+                setMobileFullSize({ width: Math.round(fullWidth), height: Math.round(fullHeight) });
+            }
+        };
+        compute();
+        window.addEventListener('resize', compute);
+        return () => window.removeEventListener('resize', compute);
     }, []);
 
     const handleOpenProject = (projectId) => {
@@ -110,13 +141,23 @@ const VistaDesktop = () => {
             </div>
 
             {isResumeOpen && (
-                <WindowFrame title="C:\BINDOWS\system32\cmd.exe" onClose={() => setIsResumeOpen(false)}>
+                <WindowFrame
+                    title="C:\\BINDOWS\\system32\\cmd.exe"
+                    onClose={() => setIsResumeOpen(false)}
+                    width={isMobile ? mobileResumeSize.width : 640}
+                    height={isMobile ? mobileResumeSize.height : 480}
+                >
                     <TerminalResume />
                 </WindowFrame>
             )}
 
             {isMyComputerOpen && (
-                <WindowFrame title="My Computer" onClose={() => setIsMyComputerOpen(false)}>
+                <WindowFrame
+                    title="My Computer"
+                    onClose={() => setIsMyComputerOpen(false)}
+                    width={isMobile ? mobileResumeSize.width : 640}
+                    height={isMobile ? mobileResumeSize.height : 480}
+                >
                     <MyComputerWindow />
                 </WindowFrame>
             )}
@@ -125,8 +166,8 @@ const VistaDesktop = () => {
                 <WindowFrame
                     title="Tyler Waite - Yahoo! Search - Wicrosoft Internet Explorer"
                     onClose={() => setIsExplorerOpen(false)}
-                    width={750}
-                    height={550}
+                    width={isMobile ? mobileResumeSize.width : 750}
+                    height={isMobile ? mobileResumeSize.height : 550}
                 >
                     <ExplorerWindow />
                 </WindowFrame>
@@ -136,8 +177,8 @@ const VistaDesktop = () => {
                 <WindowFrame
                     title="My Projects"
                     onClose={() => setIsMyDocumentsOpen(false)}
-                    width={700}
-                    height={500}
+                    width={isMobile ? mobileResumeSize.width : 700}
+                    height={isMobile ? mobileResumeSize.height : 500}
                 >
                     <MyDocumentsWindow onOpenFile={handleOpenProject} />
                 </WindowFrame>
@@ -148,8 +189,8 @@ const VistaDesktop = () => {
                     key={project.id}
                     title={project.name}
                     onClose={() => handleCloseProject(project.id)}
-                    width={550}
-                    height={400}
+                    width={isMobile ? Math.round(mobileFullSize.width * 0.95) : 550}
+                    height={isMobile ? Math.round(mobileFullSize.height * 0.95) : 400}
                 >
                     <ProjectWindow project={project} />
                 </WindowFrame>
@@ -159,8 +200,8 @@ const VistaDesktop = () => {
                 <WindowFrame
                     title="Tetris"
                     onClose={() => setIsTetrisOpen(false)}
-                    width={440}
-                    height={480}
+                    width={isMobile ? Math.round(mobileFullSize.width * 0.95) : 440}
+                    height={isMobile ? Math.round(mobileFullSize.height * 0.95) : 480}
                 >
                     <TetrisWindow />
                 </WindowFrame>

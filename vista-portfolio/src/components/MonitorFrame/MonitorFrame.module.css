@@ -125,3 +125,29 @@
     0%, 100% { border-right: .1em solid #33FF33; }
     50% { border-right-color: transparent; }
 }
+
+/* Mobile: force rectangular frame and screen */
+@media (max-width: 768px) {
+    .monitorContainer {
+        padding: 0;
+        min-height: 100vh;
+    }
+    .monitorBezel {
+        width: 100vw;
+        max-width: none;
+        border-radius: 0;
+        padding: 8px;
+        border-width: 12px;
+        box-shadow: none;
+    }
+    .monitorScreen {
+        border-radius: 0;
+        width: 100%;
+        height: calc(100vh - 40px); /* fill viewport inside bezel */
+        aspect-ratio: auto;
+        box-shadow: none;
+    }
+    .monitorStand {
+        display: none;
+    }
+}

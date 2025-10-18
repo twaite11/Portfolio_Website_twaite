@@ -80,3 +80,47 @@
 .body b {
     font-weight: bold;
 }
+@media (max-width: 768px) {
+  .banner {
+    /* Fit within small phone viewport without horizontal scroll */
+    left: 8px;
+    right: 8px;
+    width: auto;
+    max-width: none;
+    /* Keep above the 40px taskbar with a small gap and respect safe area */
+    bottom: calc(48px + env(safe-area-inset-bottom, 0px));
+    font-size: 14px;
+  }
+
+  .bannerContent {
+    padding: 12px;
+  }
+
+  .icon {
+    width: 28px;
+    height: 28px;
+    margin-right: 8px;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .closeButton {
+    font-size: 20px;
+    padding: 0 6px;
+  }
+
+  .body p {
+    margin: 0 0 10px 0;
+    line-height: 1.5;
+  }
+
+  .banner::after {
+    bottom: -8px;
+    left: 24px;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #000;
+  }
+}

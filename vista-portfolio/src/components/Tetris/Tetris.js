@@ -106,8 +106,31 @@ const Tetris = () => {
                         </div>
                     )}
                     <button className={styles.startButton} onClick={startGame}>Start Game</button>
+
+                    {/* Controls positioned directly under Start Game button */}
+                    <div className={styles.controlsBar} aria-label="Move controls">
+                        <button
+                            type="button"
+                            className={styles.controlBtn}
+                            aria-label="Move left"
+                            title="Move left"
+                            onPointerUp={() => movePlayer(-1)}
+                        >
+                            &lt;
+                        </button>
+                        <button
+                            type="button"
+                            className={styles.controlBtn}
+                            aria-label="Move right"
+                            title="Move right"
+                            onPointerUp={() => movePlayer(1)}
+                        >
+                            &gt;
+                        </button>
+                    </div>
                 </aside>
             </div>
+
         </div>
     );
 };

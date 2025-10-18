@@ -6,6 +6,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative; /* for bottom controls positioning */
+    padding-bottom: 0;
 }
 
 .tetris {
@@ -18,9 +20,9 @@
     display: grid;
     grid-template-rows: repeat(20, 20px);
     grid-template-columns: repeat(12, 20px);
-    grid-gap: 1px;
+    gap: 1px; /* Use gap for clear cell separators */
     border: 2px solid #333;
-    background: #222;
+    background: #000; /* Grid line color for all gaps */
 }
 
 .cell {
@@ -61,4 +63,37 @@
     font-size: 1rem;
     outline: none;
     cursor: pointer;
+}
+
+/* Controls bar displayed under the Start Game button */
+.controlsBar {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px dashed rgba(255,255,255,0.25);
+}
+
+.controlBtn {
+    min-width: 56px;
+    height: 44px;
+    border-radius: 8px;
+    border: 1px solid #fff;
+    background: #1E90FF;
+    color: #fff;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+.controlBtn:active {
+    transform: translateY(1px);
+}
+
+.controlBtn:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 2px;
 }
