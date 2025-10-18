@@ -97,3 +97,18 @@
     outline: 3px solid #fff;
     outline-offset: 2px;
 }
+
+/* Mobile: scale entire game UI to 83% to fit the smaller window */
+@media (max-width: 768px) {
+    .tetris {
+        transform: scale(0.83);
+        transform-origin: top left;
+    }
+    .tetrisWrapper {
+        /* Center the scaled game and prevent accidental clipping */
+        justify-content: flex-start;
+        align-items: flex-start;
+        overflow: hidden;
+        padding: 4px;
+    }
+}

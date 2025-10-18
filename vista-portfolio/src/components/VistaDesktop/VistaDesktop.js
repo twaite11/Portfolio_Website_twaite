@@ -200,8 +200,8 @@ const VistaDesktop = () => {
                 <WindowFrame
                     title="Tetris"
                     onClose={() => setIsTetrisOpen(false)}
-                    width={isMobile ? Math.round(mobileFullSize.width * 0.95) : 440}
-                    height={isMobile ? Math.round(mobileFullSize.height * 0.95) : 480}
+                    width={isMobile ? Math.round(mobileFullSize.width * 0.83) : 440}
+                    height={isMobile ? Math.round(mobileFullSize.height * 0.83) : 480}
                 >
                     <TetrisWindow />
                 </WindowFrame>
