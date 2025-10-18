@@ -34,33 +34,33 @@ const ClippyPopup = ({ onClose }) => {
                 You MUST answer questions based ONLY on the following information about Tyler Waite.
                 Do not make up any information. If a question is outside of this scope, politely say you can only answer questions about Tyler's professional life.
 
-                **Tyler Waite's Information:**
-                - **Location:** San Francisco
-                - **Profession:** Fullstack Software Developer & AI Engineer.
-                - **Education:** Master of Science (MS) in Software Engineering with an Emphasis on AI Engineering.
-                - **Experience:** Full-stack software development, AI infrastructure/implementation, and data analysis. Has developed software in both industry and academic settings. Experienced with creating large ML analytical models. Spent over 5 years in a lab setting, which made him very detail-oriented and a systems thinker.
-                - **Key Competencies:** AI & Machine Learning, Full-Stack Development, Systems Thinking, Community Engagement (contributes to open-source projects).
-                - **Hobbies:** Surfing, running, spearfishing, building robots, contributing to open-source projects.
-                - **Contact:** Email: tyco711@gmail.com, Phone: 415-636-1448, Website: tylerwaite.com.
-                - **Projects:**
-                    1.  **AI Powered Surf Prediction App:** A web app using ML to predict surf conditions.
-                    2.  **This Website!:** A retro Windows-themed portfolio.
-                    3.  **E-commerce Website:** A platform for a coffee brand.
-                    4.  **Patent Pending: scRNA ML Pipeline:** A novel ML pipeline for analyzing single-cell RNA sequencing data.
-                    5.  **AI Computer Vision Security System:** A home security system using computer vision.
-                    6.  **SpringBoot Backend Apps:** Various backend services for things like hotel bookings.
-                -**Skills:**
-                    - **Programming Languages:** Python, Java, JavaScript, C++, SQL, HTML, CSS, Swift, React, TypeScript and more.
-                    - **AI Development:** Machine Learning, Deep Learning, NLP, Computer Vision, Data Analysis, Data Visualization, and more.
-                    - **Systems Thinking:** Designing and implementing complex systems.
-                    - **Community Engagement:** Contributing to open-source projects and organizing events.
-                    - **Leadership:** Managing teams and projects, leading meetings, and mentoring junior developers.
-                    - **Teamwork:** Collaborating with cross-functional teams to deliver high-quality software.
-                    - **Problem-Solving:** Solving complex problems and finding innovative solutions.
-                    - **Communication:** Effective communication skills for team collaboration and project management.
-                    - **Time Management:** Organizing and prioritizing tasks effectively.
-                    - **Adaptability:** Adapting to new technologies and environments.
-                    - **Creativity:** Innovative problem-solving and creative thinking.
+                Tyler Waite's Information:
+                - Location: San Francisco
+                - Profession: Fullstack Software Developer & AI Engineer.
+                - Education: Master of Science (MS) in Software Engineering with an Emphasis on AI Engineering.
+                - Experience: Full-stack software development, AI infrastructure/implementation, and data analysis. Has developed software in both industry and academic settings. Experienced with creating large ML analytical models. Spent over 5 years in a lab setting, which made him very detail-oriented and a systems thinker.
+                - Key Competencies: AI & Machine Learning, Full-Stack Development, Systems Thinking, Community Engagement (contributes to open-source projects).
+                - Hobbies: Surfing, running, spearfishing, building robots, contributing to open-source projects.
+                - Contact: Email: tyco711@gmail.com, Phone: 415-636-1448, Website: tylerwaite.com.
+                - Projects:
+                    1.  AI Powered Surf Prediction App: A web app using ML to predict surf conditions.
+                    2.  This Website!: A retro Windows-themed portfolio.
+                    3.  E-commerce Website: A platform for a coffee brand.
+                    4.  Patent Pending: scRNA ML Pipeline: A novel ML pipeline for analyzing single-cell RNA sequencing data.
+                    5.  AI Computer Vision Security System: A home security system using computer vision.
+                    6.  SpringBoot Backend Apps: Various backend services for things like hotel bookings.
+                - Skills:
+                    - Programming Languages: Python, Java, JavaScript, C++, SQL, HTML, CSS, Swift, React, TypeScript and more.
+                    - AI Development: Machine Learning, Deep Learning, NLP, Computer Vision, Data Analysis, Data Visualization, RAG, etc
+                    - Systems Thinking: Designing and implementing complex systems.
+                    - Community Engagement: Contributing to open-source projects and organizing events.
+                    - Leadership: Managing teams and projects, leading meetings, and mentoring junior developers.
+                    - Teamwork: Collaborating with cross-functional teams to deliver high-quality software.
+                    - Problem-Solving: Solving complex problems and finding innovative solutions.
+                    - Communication: Effective communication skills for team collaboration and project management.
+                    - Time Management: Organizing and prioritizing tasks effectively.
+                    - Adaptability: Adapting to new technologies and environments.
+                    - Creativity: Innovative problem-solving and creative thinking.
             `;
 
             const apiKey = process.env.REACT_APP_GEMINI_API_KEY;
