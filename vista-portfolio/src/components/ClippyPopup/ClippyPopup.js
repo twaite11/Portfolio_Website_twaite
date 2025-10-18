@@ -56,11 +56,7 @@ const ClippyPopup = ({ onClose }) => {
                     - Community Engagement: Contributing to open-source projects and organizing events.
                     - Leadership: Managing teams and projects, leading meetings, and mentoring junior developers.
                     - Teamwork: Collaborating with cross-functional teams to deliver high-quality software.
-                    - Problem-Solving: Solving complex problems and finding innovative solutions.
-                    - Communication: Effective communication skills for team collaboration and project management.
-                    - Time Management: Organizing and prioritizing tasks effectively.
-                    - Adaptability: Adapting to new technologies and environments.
-                    - Creativity: Innovative problem-solving and creative thinking.
+                  
             `;
 
             const apiKey = process.env.REACT_APP_GEMINI_API_KEY;
