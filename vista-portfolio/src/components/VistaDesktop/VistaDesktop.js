@@ -12,6 +12,7 @@ import dcaf from '../../assets/dcaf.JPG';
 import java from '../../assets/java.JPG';
 import scRNAseq from '../../assets/scRNAseq.png';
 import website from '../../assets/website.JPG';
+import pihole from '../../assets/pihole.JPG';
 
 
 // Import all components
@@ -35,6 +36,9 @@ const projectData = {
     proj4: { id: 'proj4', name: 'AWS-Deployed scRNA-seq Pipeline', href: 'https://patents.google.com/patent/WO2025097031A1/en?oq=WO2025097031A1', description: 'Developed a containerized bioinformatics pipeline on AWS to support a patent filing for a novel cell therapy drug. The pipeline leverages Salmon, Scanpy, and the scDLC deep learning tool to identify potential protein receptors from single-cell data, with interactive visualization provided by Cellxgene.', stack: ['Python', 'scDLC', 'scanpy', 'scikit-learn', 'squidpy', 'pandas'], image: scRNAseq },
     proj5: { id: 'proj5', name: 'AI Computer Vision Security System', href: 'https://github.com/twaite11/home_security_bot', description: 'An intelligent home security system that uses computer vision to detect visitors and guests. Using an Intel RealSense D455 camera, it detects when a person walks through the door and processes the feed on its powerful NVIDIA Jetson Xavier board. A facial recognition script determines the individual\'s identity. The underlying AI model is trained in TensorFlow, employing a Siamese Network architecture to effectively learn unique facial features from images. If the person is found in its NVMe-stored database, the robot greets them with a personalized message via its integrated speaker. If unrecognized, it uses its speaker and microphone to interactively prompt for registration, capturing new images to create a profile.', stack: ['Python', 'OpenCV', 'TensorFlow', 'NVIDIA Jetson Xavier', 'Intel RealSense SDK'] },
     proj6: { id: 'proj6', name: 'Several SpringBoot Backend App Builds', href: 'https://github.com/twaite11/hotel_booking_app_landon', description: 'A collection of robust backend applications built with the SpringBoot framework. These projects include RESTful APIs for services like hotel bookings, user management, and data processing, showcasing strong Java backend skills.', stack: ['Java', 'Spring Boot', 'Maven', 'PostgreSQL', 'REST APIs'], image: java },
+    proj7: { id: 'proj7', name: 'Project: Pi-hole DHCP Ad-Blocking Network', href: 'https://github.com/twaite11/hotel_booking_app_landon', description: 'This project involved creating a robust, always-on ad and tracker blocking solution for an entire home network. Using a Raspberry Pi Zero 2 W running Pi-hole, I aimed to filter content at the network level for all connected devices.\n' +
+            '\n' +
+            'A significant hurdle emerged when I discovered the router\'s firmware restricted any changes to its DNS settings. To overcome this, I pivoted from the standard DNS setup to a more advanced DHCP configuration. This involved carefully disabling the router\'s own DHCP server and enabling the one on the Pi-hole. This strategy successfully forced every device on the network to request its IP address from the Pi-hole, thereby inheriting its DNS settings automatically and ensuring complete ad-blocking coverage.', stack: ['Bash', 'Pi-OS', 'pi-hole', 'lighttpd', 'DHCP'], image: pihole },
 };
 
 const VistaDesktop = () => {

@@ -14,6 +14,7 @@ const MyDocumentsWindow = ({ onOpenFile }) => {
         { id: 'proj4', name: 'Patent Pending: scRNA ML Pipeline' },
         { id: 'proj5', name: 'AI Computer Vision Security System' },
         { id: 'proj6', name: 'SpringBoot Backend App Builds' },
+        { id: 'proj7', name: 'pi-hole DHCP Ad-Blocking System' },
     ];
 
     return (
