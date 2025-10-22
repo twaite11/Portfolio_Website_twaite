@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import startOrb from './assets/start-orb.png';
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 // Ensure the tab title shows as requested
 if (document.title !== 'Bindows.exe') {
