@@ -30,7 +30,7 @@ import ClippyPopup from '../ClippyPopup/ClippyPopup';
 import ClippyTaskbarIcon from '../ClippyTaskbarIcon/ClippyTaskbarIcon';
 import StreamlitAppWindow from '../StreamlitAppWindow/StreamlitAppWindow';
 import AIPaintWindow from '../AIPaintWindow/AIPaintWindow';
-import ResultWindow from '../ResultWindow/ResultWindow';
+
 
 const projectData = {
     proj1: { id: 'proj1', name: 'AI Powered Surf Prediction App', href: 'https://kookpy.streamlit.app/', description: 'This web application generates a predictive surf quality score using a unique machine learning model. It trains a Convolutional Neural Network (CNN) on a library of manually labeled wave images, captured at specific beaches with recorded times and dates. This visual analysis is then mapped via a fusion layer with corresponding weather data, pulled from an API for the exact same time and location. This meteorological data is processed by a Multi-Layer Perceptron (MLP), allowing the model to provide surfers with a comprehensive and accurate forecast.', stack: ['Python', 'Heroku', 'Scikit-learn', 'pandas', 'XGBoost', 'ResNet', 'Tensorflow'], image: kookpyDemo},
@@ -254,17 +254,6 @@ const VistaDesktop = () => {
 
                 >
                     <AIPaintWindow onImageGenerated={handleImageGenerated} />
-                </WindowFrame>
-            )}
-
-            {resultImageUrl && (
-                <WindowFrame
-                    title="AI Masterpiece"
-                    onClose={handleCloseResultWindow}
-                    width={isMobile ? Math.round(mobileFullSize.width * 0.95) : 900}
-                    height={isMobile ? Math.round(mobileFullSize.height * 0.95) : 600}
-                >
-                    <ResultWindow imageUrl={resultImageUrl} />
                 </WindowFrame>
             )}
 
