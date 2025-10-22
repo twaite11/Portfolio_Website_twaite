@@ -1,8 +1,8 @@
 // /api/generateImage.js
 
-import fetch from 'node-fetch';
-import FormData from 'form-data';
-import { Readable } from 'stream';
+const fetch = require('node-fetch');
+const FormData = require('form-data');
+const { Readable } = require('stream');
 
 export default async function handler(req, res) {
     if (req.method !== 'POST') {
