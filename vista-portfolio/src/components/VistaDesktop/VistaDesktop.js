@@ -14,6 +14,7 @@ import scRNAseq from '../../assets/scRNAseq.png';
 import website from '../../assets/website.JPG';
 import pihole from '../../assets/pihole.JPG';
 import kookpyLogo from '../../assets/kookpy_demo.png';
+import paintIcon from '../../assets/paint-icon.png';
 
 // Import all components
 import DesktopIcon from '../DesktopIcon/DesktopIcon';
@@ -28,7 +29,7 @@ import ProjectWindow from '../ProjectWindow/ProjectWindow';
 import ClippyPopup from '../ClippyPopup/ClippyPopup';
 import ClippyTaskbarIcon from '../ClippyTaskbarIcon/ClippyTaskbarIcon';
 import StreamlitAppWindow from '../StreamlitAppWindow/StreamlitAppWindow';
-
+import AIPaintWindow from '../AIPaintWindow/AIPaintWindow';
 
 const projectData = {
     proj1: { id: 'proj1', name: 'AI Powered Surf Prediction App', href: 'https://kookpy.streamlit.app/', description: 'This web application generates a predictive surf quality score using a unique machine learning model. It trains a Convolutional Neural Network (CNN) on a library of manually labeled wave images, captured at specific beaches with recorded times and dates. This visual analysis is then mapped via a fusion layer with corresponding weather data, pulled from an API for the exact same time and location. This meteorological data is processed by a Multi-Layer Perceptron (MLP), allowing the model to provide surfers with a comprehensive and accurate forecast.', stack: ['Python', 'Heroku', 'Scikit-learn', 'pandas', 'XGBoost', 'ResNet', 'Tensorflow'], image: kookpyDemo},
@@ -52,7 +53,8 @@ const VistaDesktop = () => {
     const [isMyDocumentsOpen, setIsMyDocumentsOpen] = useState(false);
     const [isClippyOpen, setIsClippyOpen] = useState(false);
     const [isSurfAppOpen, setIsSurfAppOpen] = useState(false);
-    const [openProjects, setOpenProjects] = useState([]); // State for open project windows
+    const [openProjects, setOpenProjects] = useState([]);
+    const [isPaintOpen, setIsPaintOpen] = useState(false);
 
     // Mobile detection and sizing for Resume window
     const [isMobile, setIsMobile] = useState(false);
@@ -145,6 +147,11 @@ const VistaDesktop = () => {
                     icon={kookpyLogo}
                     onDoubleClick={() => setIsSurfAppOpen(true)}
                 />
+                <DesktopIcon
+                    title="MSpaint.exe"
+                    icon={paintIcon}
+                    onDoubleClick={() => setIsPaintOpen(true)}
+                />
             </div>
 
             {isResumeOpen && (
@@ -222,6 +229,18 @@ const VistaDesktop = () => {
                     height={isMobile ? Math.round(mobileFullSize.height * 0.95) : 600}
                 >
                     <StreamlitAppWindow />
+                </WindowFrame>
+            )}
+
+            {isPaintOpen && (
+                <WindowFrame
+                    title="AI Paint"
+                    onClose={() => setIsPaintOpen(false)}
+                    width={isMobile ? Math.round(mobileFullSize.width * 0.95) : 900}
+                    height={isMobile ? Math.round(mobileFullSize.height * 0.95) : 600}
+
+                >
+                    <AIPaintWindow />
                 </WindowFrame>
             )}
 
