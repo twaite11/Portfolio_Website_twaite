@@ -22,7 +22,7 @@ export default async function handler(req, res) {
         formData.append('init_image', Readable.from(imageBuffer), 'init_image.png');
         formData.append('init_image_mode', 'IMAGE_STRENGTH');
         formData.append('image_strength', 0.45);
-        formData.append('text_prompts[0][text]', prompt);
+        formData.append('prompt', prompt);
         formData.append('cfg_scale', 7);
         formData.append('samples', 1);
         formData.append('steps', 30);
