@@ -32,10 +32,34 @@ const AIPaintWindow = () => {
     // State to manage the visibility of the instructions pop-up
     const [showInstructions, setShowInstructions] = useState(true);
 
-    /**
-     * Effect to clean up the temporary Object URL to prevent memory leaks.
-     * This runs when the component unmounts or when a new imageUrl is created.
-     */
+    const [loadingMessage, setLoadingMessage] = useState('Warming up the AI...');
+    const loadingMessages = [
+        'Warming up the AI... ',
+        'Sending your sketch... ',
+        'Painting your masterpiece... ',
+        'Applying finishing touches... ',
+        'Receiving your new art...'
+    ];
+    useEffect(() => {
+        let intervalId = null;
+        if (isLoading) {
+            let messageIndex = 0;
+            // Set the first message immediately
+            setLoadingMessage(loadingMessages[0]);
+
+            // Cycle through the rest
+            intervalId = setInterval(() => {
+                messageIndex = (messageIndex + 1) % loadingMessages.length;
+                setLoadingMessage(loadingMessages[messageIndex]);
+            }, 2000); // Change message every 2.5 seconds
+        }
+        return () => {
+            if (intervalId) {
+                clearInterval(intervalId);
+            }
+        };
+    }, [isLoading]);
+
     useEffect(() => {
         // This is the cleanup function
         return () => {
@@ -178,9 +202,15 @@ const AIPaintWindow = () => {
                 />
             </div>
 
-            {/* Feedback messages */}
             {error && <div className={styles.error}>{error}</div>}
-            {isLoading && <div className={styles.loading}>Generating your masterpiece... ✨</div>}
+
+            {/* --- MODIFIED: Loading indicator now uses spinner and cycling messages --- */}
+            {isLoading && (
+                <div className={styles.loading}>
+                    <div className={styles.loader}></div>
+                    <span>{loadingMessage}</span>
+                </div>
+            )}
 
             {/* The generated image result area */}
             {imageUrl && (
