@@ -29,7 +29,7 @@ export default async function handler(req, res) {
 
         // 4. Make the API call to Stability AI
         const response = await fetch(
-            "https://api.stability.ai/v1/generation/stable-diffusion-v1-6/image-to-image",
+            "https://api.stability.ai/v2beta/stable-image/generate/sd3",
             {
                 method: 'POST',
                 headers: {
