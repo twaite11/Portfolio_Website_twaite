@@ -4,8 +4,8 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    /* UPDATED: Changed height to min-height */
-    min-height: 100%;
+    /* UPDATED: Changed to 100% height to fill the parent WindowFrame */
+    height: 100%;
     background-color: #c0c0c0;
     padding: 10px;
     gap: 10px;
@@ -60,8 +60,11 @@
 /* --- Canvas Area --- */
 .canvasArea {
     flex-grow: 1;
+    /* UPDATED: Removed min-height to allow flex-grow to fill all available space */
     border: 2px inset #fff;
     background-color: white;
+    /* UPDATED: Add display flex so the inner canvas component scales */
+    display: flex;
 }
 
 .canvas {
@@ -71,8 +74,7 @@
 }
 
 /* --- Feedback & Loading --- */
-
-/* Updated loading container to use flex */
+/* These styles are kept as they are still used in AIPaintWindow.js */
 .loading {
     display: flex;
     align-items: center;
@@ -113,52 +115,6 @@
     }
 }
 
-/* --- Result Image Area --- */
-.resultArea {
-    text-align: center;
-}
-
-/* New container for the result header */
-.resultHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 80%;
-    /* Match the image width */
-    margin: 0 auto;
-    /* Center it */
-}
-
-.resultHeader h3 {
-    margin: 0;
-}
-
-/* Style for the new download button */
-.downloadButton {
-    padding: 5px 10px;
-    font-size: 12px;
-    border: 1px solid #7f7f7f;
-    background-color: #dfdfdf;
-    cursor: pointer;
-}
-
-.downloadButton:hover {
-    background-color: #c0c0c0;
-}
-
-.resultImage {
-    max-width: 80%;
-    max-height: 250px;
-    border: 2px solid #333;
-    margin-top: 10px;
-    /* Fade-in effect */
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.resultImage.loaded {
-    opacity: 1;
-}
 
 /* --- Instructions Pop-up --- */
 .instructionsOverlay {
