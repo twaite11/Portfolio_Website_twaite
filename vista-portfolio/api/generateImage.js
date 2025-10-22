@@ -1,5 +1,3 @@
-// /api/generateImage.js
-
 const fetch = require('node-fetch');
 const FormData = require('form-data');
 const { Readable } = require('stream');
@@ -10,32 +8,29 @@ export default async function handler(req, res) {
     }
 
     try {
-        // 1. Get the doodle (as a Base64 string) and the prompt from the frontend
-        const { image, prompt } = req.body;
+        // CHANGED: Get the new 'controlStrength' from the request body
+        const { image, prompt, controlStrength } = req.body;
 
-        // 2. Convert the Base64 image data to a Buffer
         const base64Data = image.replace(/^data:image\/png;base64,/, "");
         const imageBuffer = Buffer.from(base64Data, 'base64');
 
-        // 3. Prepare the form data for the Stability AI API request
         const formData = new FormData();
-        formData.append('init_image', Readable.from(imageBuffer), 'init_image.png');
-        formData.append('init_image_mode', 'IMAGE_STRENGTH');
-        formData.append('image_strength', 0.45);
+        // CHANGED: The doodle is now sent as 'image'
+        formData.append('image', Readable.from(imageBuffer), 'doodle.png');
         formData.append('prompt', prompt);
-        formData.append('cfg_scale', 7);
-        formData.append('samples', 1);
-        formData.append('steps', 30);
+        // NEW: Add the control_strength parameter
+        formData.append('control_strength', controlStrength);
+        formData.append('output_format', 'png');
 
-        // 4. Make the API call to Stability AI
+        // CHANGED: Updated the API endpoint URL to the sketch model
         const response = await fetch(
-            "https://api.stability.ai/v2beta/stable-image/generate/sd3",
+            "https://api.stability.ai/v2beta/stable-image/control/sketch",
             {
                 method: 'POST',
                 headers: {
                     ...formData.getHeaders(),
-                    Accept: 'application/json',
-                    Authorization: `Bearer ${process.env.REACT_APP_STABILITY_API_KEY}`,
+                    Accept: 'image/*', // The sketch endpoint accepts image/*
+                    Authorization: `Bearer ${process.env.STABILITY_AI_KEY}`,
                 },
                 body: formData,
             }
@@ -45,14 +40,23 @@ export default async function handler(req, res) {
             throw new Error(`Non-200 response: ${await response.text()}`);
         }
 
-        const data = await response.json();
+        // NEW: Check for content filtering based on response headers
+        const finishReason = response.headers.get('finish-reason');
+        if (finishReason === 'CONTENT_FILTERED') {
+            throw new Error('Generation failed due to NSFW classifier.');
+        }
 
-        // 5. Send the generated image back to the frontend
-        const generatedImage = data.artifacts[0].base64;
-        res.status(200).json({ image: generatedImage });
+        // CHANGED: The image is returned as raw binary, so we need to buffer and convert it
+        const imageResponseBuffer = await response.buffer();
+        const generatedImageBase64 = imageResponseBuffer.toString('base64');
+
+        res.status(200).json({ image: generatedImageBase64 });
 
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'Failed to generate image' });
+        console.error("Full error:", error);
+        res.status(500).json({
+            error: 'Failed to generate image',
+            details: error.message
+        });
     }
 }
