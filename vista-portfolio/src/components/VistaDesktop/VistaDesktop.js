@@ -155,13 +155,15 @@ const VistaDesktop = () => {
                     icon={tetrisIcon}
                     onDoubleClick={() => setIsTetrisOpen(true)}
                 />
+            </div>
+            <div className={styles.desktopIcons2}>
                 <DesktopIcon
-                    title="KookpyAI.exe"
+                    title="SurfAI.exe"
                     icon={kookpyLogo}
                     onDoubleClick={() => setIsSurfAppOpen(true)}
                 />
                 <DesktopIcon
-                    title="MSpaint.exe"
+                    title="pAInt.exe"
                     icon={paintIcon}
                     onDoubleClick={() => setIsPaintOpen(true)}
                 />
