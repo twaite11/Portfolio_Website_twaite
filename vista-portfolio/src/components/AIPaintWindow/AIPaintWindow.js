@@ -51,7 +51,7 @@ const AIPaintWindow = () => {
             intervalId = setInterval(() => {
                 messageIndex = (messageIndex + 1) % loadingMessages.length;
                 setLoadingMessage(loadingMessages[messageIndex]);
-            }, 2000); // Change message every 2.5 seconds
+            }, 4000);
         }
         return () => {
             if (intervalId) {
