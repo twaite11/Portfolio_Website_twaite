@@ -13,7 +13,7 @@ import java from '../../assets/java.JPG';
 import scRNAseq from '../../assets/scRNAseq.png';
 import website from '../../assets/website.JPG';
 import pihole from '../../assets/pihole.JPG';
-
+import kookpyLogo from '../../assets/kookpy_demo.png';
 
 // Import all components
 import DesktopIcon from '../DesktopIcon/DesktopIcon';
@@ -27,6 +27,7 @@ import MyDocumentsWindow from '../MyDocumentsWindow/MyDocumentsWindow';
 import ProjectWindow from '../ProjectWindow/ProjectWindow';
 import ClippyPopup from '../ClippyPopup/ClippyPopup';
 import ClippyTaskbarIcon from '../ClippyTaskbarIcon/ClippyTaskbarIcon';
+import StreamlitAppWindow from '../StreamlitAppWindow/StreamlitAppWindow';
 
 
 const projectData = {
@@ -50,6 +51,7 @@ const VistaDesktop = () => {
     const [isExplorerOpen, setIsExplorerOpen] = useState(false);
     const [isMyDocumentsOpen, setIsMyDocumentsOpen] = useState(false);
     const [isClippyOpen, setIsClippyOpen] = useState(false);
+    const [isSurfAppOpen, setIsSurfAppOpen] = useState(false);
     const [openProjects, setOpenProjects] = useState([]); // State for open project windows
 
     // Mobile detection and sizing for Resume window
@@ -138,6 +140,11 @@ const VistaDesktop = () => {
                     icon={tetrisIcon}
                     onDoubleClick={() => setIsTetrisOpen(true)}
                 />
+                <DesktopIcon
+                    title="KookpyAI.exe"
+                    icon={kookpyLogo}
+                    onDoubleClick={() => setIsSurfAppOpen(true)}
+                />
             </div>
 
             {isResumeOpen && (
@@ -204,6 +211,17 @@ const VistaDesktop = () => {
                     height={isMobile ? Math.round(mobileFullSize.height * 0.83) : 480}
                 >
                     <TetrisWindow />
+                </WindowFrame>
+            )}
+
+            {isSurfAppOpen && (
+                <WindowFrame
+                    title="Kookpy Surf AI"
+                    onClose={() => setIsSurfAppOpen(false)}
+                    width={isMobile ? Math.round(mobileFullSize.width * 0.95) : 900}
+                    height={isMobile ? Math.round(mobileFullSize.height * 0.95) : 600}
+                >
+                    <StreamlitAppWindow />
                 </WindowFrame>
             )}
 
