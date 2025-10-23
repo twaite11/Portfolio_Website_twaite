@@ -1,6 +1,7 @@
 /* Main window container */
 .window {
     position: absolute;
+    z-index: 10; /* ensure windows appear above desktop icons (z-index: 2) */
     background-color: #ECE9D8;
     border: 2px solid;
     border-top-color: #FFFFFF;

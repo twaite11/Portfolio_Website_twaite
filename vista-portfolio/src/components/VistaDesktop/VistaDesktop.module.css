@@ -15,20 +15,16 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
+    z-index: 2;
 }
 .desktopIcons2 {
     position: absolute;
-    top: 11px;
-    left: 10px;
+    top: 10px;
+    left: 110px;
     display: flex;
     flex-direction: column;
     gap: 15px;
-}
-
-.desktopIcons2 > :nth-child(1),
-.desktopIcons2 > :nth-child(2) {
-    margin-left: 8rem;
-
+    z-index: 2;
 }
 
 .taskbar {
