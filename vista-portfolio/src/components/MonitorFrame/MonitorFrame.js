@@ -9,7 +9,7 @@ const MonitorFrame = () => {
 
         const bootTimer = setTimeout(() => {
             setIsPoweredOn(true);
-        }, 4500); // 4.5 seconds
+        }, 3500); // 3.5 seconds
 
         return () => clearTimeout(bootTimer);
     }, []);
@@ -29,7 +29,7 @@ const MonitorFrame = () => {
                                     <p className={styles.typewriter2}>Memory Check: 64MB OK </p>
                                     <p className={styles.typewriter3}>Loading kernel...</p>
                                     <p className={styles.typewriter4}>Booting from C:\</p>
-                                    <p className={styles.typewriter5}>Initializing Tyler Waite Portfolio.bios</p>
+                                    <p className={styles.typewriter5}>Initializing Portfolio.bios</p>
                                 </div>
                             </div>
                         )}

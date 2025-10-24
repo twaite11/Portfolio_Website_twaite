@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from './VistaDesktop.module.css';
-import wallpaper from '../../assets/vista-wallpaper.jpeg';
+import wallpaper1 from '../../assets/vista-wallpaper.jpeg';
 import startOrb from '../../assets/start-orb.png';
 import cmdIcon from '../../assets/cmd-icon.png';
 import myComputerIcon from '../../assets/my-computer-icon.png';
@@ -15,6 +15,10 @@ import website from '../../assets/website.JPG';
 import pihole from '../../assets/pihole.JPG';
 import kookpyLogo from '../../assets/kookpy_demo.png';
 import paintIcon from '../../assets/paint-icon.png';
+import wallpaper2 from '../../assets/vista-background-night.png';
+import wallpaper3 from '../../assets/vista-background-raining.png';
+import wallpaper4 from '../../assets/vista-background-sheep.png';
+// geez need to do svg's or something this is getting out of hand...
 
 // Import all components
 import DesktopIcon from '../DesktopIcon/DesktopIcon';
@@ -44,6 +48,8 @@ const projectData = {
             'A significant hurdle emerged when I discovered the router\'s firmware restricted any changes to its DNS settings. To overcome this, I pivoted from the standard DNS setup to a more advanced DHCP configuration. This involved carefully disabling the router\'s own DHCP server and enabling the one on the Pi-hole. This strategy successfully forced every device on the network to request its IP address from the Pi-hole, thereby inheriting its DNS settings automatically and ensuring complete ad-blocking coverage.', stack: ['Bash', 'Pi-OS', 'pi-hole', 'lighttpd', 'DHCP'], image: pihole },
 };
 
+const wallpapers = [wallpaper1, wallpaper2, wallpaper3, wallpaper4];
+
 const VistaDesktop = () => {
     const [currentDateTime, setCurrentDateTime] = useState(new Date());
     const [isResumeOpen, setIsResumeOpen] = useState(false);
@@ -57,11 +63,12 @@ const VistaDesktop = () => {
     const [openProjects, setOpenProjects] = useState([]);
     const [isPaintOpen, setIsPaintOpen] = useState(false);
     const [resultImageUrl, setResultImageUrl] = useState(null);
+    const [wallpaperIndex, setWallpaperIndex] = useState(0);
 
-    // Mobile detection and sizing for Resume window
+    // Mobile detection and sizing
     const [isMobile, setIsMobile] = useState(false);
     const [mobileResumeSize, setMobileResumeSize] = useState({ width: 320, height: 220 });
-    // Mobile full-screen sizing for apps like Tetris
+    // Mobile full-screen sizing
     const [mobileFullSize, setMobileFullSize] = useState({ width: 0, height: 0 });
 
     useEffect(() => {
@@ -113,22 +120,26 @@ const VistaDesktop = () => {
         setResultImageUrl(imageUrl);
     };
 
-    const handleCloseResultWindow = () => {
-        if (resultImageUrl) {
-            URL.revokeObjectURL(resultImageUrl);
-        }
-        setResultImageUrl(null);
-    };
-
     const handleCloseProject = (projectId) => {
         setOpenProjects(prev => prev.filter(p => p.id !== projectId));
+    };
+
+    const handleChangeWallpaper = () => {
+        setWallpaperIndex(prevIndex => (prevIndex + 1) % wallpapers.length);
     };
 
     return (
         <div
             className={styles.desktop}
-            style={{ backgroundImage: `url(${wallpaper})` }}
+            style={{ backgroundImage: `url(${wallpapers[wallpaperIndex]})` }}
         >
+            <button
+                className={styles.wallpaperButton}
+                onClick={handleChangeWallpaper}
+            >
+                Cycle Through Seasons
+            </button>
+
             <div className={styles.desktopIcons}>
                 <DesktopIcon
                     title="My Resume"

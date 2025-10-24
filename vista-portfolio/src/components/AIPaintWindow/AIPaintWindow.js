@@ -143,7 +143,7 @@ const AIPaintWindow = () => {
                     X
                 </button>
                 <h3>Welcome to AI Paint!</h3>
-                <p>This is my modernized take on a timeless classic: <strong>MS Paint</strong>. In my opinion, the timeless simplicity of MS Paint is a quiet monument to good, clean programming. I have taken a small snapshot of the original and did what no one asked for... or probably wanted... Anyway, the instructions are below please enjoy!</p>
+                <p>This is my modernized take on a timeless classic: <strong>MS Paint</strong>. In my opinion, the simplicity of MS Paint is a quiet monument to good, clean programming. I have taken a small snapshot of the original and did what no one asked for... or probably wanted... Anyway, the instructions are below please enjoy!</p>
                 <p>Here's how it works:</p>
                 <ol>
                     <li><strong>Draw a Doodle:</strong> Use the canvas to draw a simple shape or outline.</li>
