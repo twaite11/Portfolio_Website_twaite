@@ -18,6 +18,7 @@ import paintIcon from '../../assets/paint-icon.png';
 import wallpaper2 from '../../assets/vista-background-night.png';
 import wallpaper3 from '../../assets/vista-background-raining.png';
 import wallpaper4 from '../../assets/vista-background-sheep.png';
+import fredIcon from '../../assets/fred-icon.png';
 // geez need to do svg's or something this is getting out of hand...
 
 // Import all components
@@ -34,6 +35,7 @@ import ClippyPopup from '../ClippyPopup/ClippyPopup';
 import ClippyTaskbarIcon from '../ClippyTaskbarIcon/ClippyTaskbarIcon';
 import StreamlitAppWindow from '../StreamlitAppWindow/StreamlitAppWindow';
 import AIPaintWindow from '../AIPaintWindow/AIPaintWindow';
+import FredWindow from '../FredWindow/FredWindow';
 
 
 const projectData = {
@@ -64,6 +66,7 @@ const VistaDesktop = () => {
     const [isPaintOpen, setIsPaintOpen] = useState(false);
     const [resultImageUrl, setResultImageUrl] = useState(null);
     const [wallpaperIndex, setWallpaperIndex] = useState(0);
+    const [isFredWindowOpen, setIsFredWindowOpen] = useState(false);
 
     // Mobile detection and sizing
     const [isMobile, setIsMobile] = useState(false);
@@ -174,9 +177,14 @@ const VistaDesktop = () => {
                     onDoubleClick={() => setIsSurfAppOpen(true)}
                 />
                 <DesktopIcon
-                    title="pAInt.exe"
+                    title="WS Paint"
                     icon={paintIcon}
                     onDoubleClick={() => setIsPaintOpen(true)}
+                />
+                <DesktopIcon
+                    title="Wicrosoft Home Security"
+                    icon={fredIcon}
+                    onDoubleClick={() => setIsFredWindowOpen(true)}
                 />
             </div>
 
@@ -267,6 +275,17 @@ const VistaDesktop = () => {
 
                 >
                     <AIPaintWindow onImageGenerated={handleImageGenerated} />
+                </WindowFrame>
+            )}
+
+            {isFredWindowOpen && (
+                <WindowFrame
+                    title="Project Report: F.R.E.D."
+                    onClose={() => setIsFredWindowOpen(false)}
+                    width={800}
+                    height={600}
+                >
+                    <FredWindow />
                 </WindowFrame>
             )}
 

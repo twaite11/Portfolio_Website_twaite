@@ -20,7 +20,7 @@
 .desktopIcons2 {
     position: absolute;
     top: 10px;
-    left: 110px;
+    left: 140px;
     display: flex;
     flex-direction: column;
     gap: 15px;
