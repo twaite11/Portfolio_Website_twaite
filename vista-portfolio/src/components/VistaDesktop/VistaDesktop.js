@@ -137,7 +137,7 @@ const VistaDesktop = () => {
                 className={styles.wallpaperButton}
                 onClick={handleChangeWallpaper}
             >
-                Cycle Through Seasons
+                Toggle Seasons
             </button>
 
             <div className={styles.desktopIcons}>
@@ -262,8 +262,8 @@ const VistaDesktop = () => {
                 <WindowFrame
                     title="AI Paint"
                     onClose={() => setIsPaintOpen(false)}
-                    width={isMobile ? Math.round(mobileFullSize.width * 0.95) : 900}
-                    height={isMobile ? Math.round(mobileFullSize.height * 0.95) : 600}
+                    width={isMobile ? Math.round(mobileFullSize.width * 0.75) : 900}
+                    height={isMobile ? Math.round(mobileFullSize.height * 0.75) : 600}
 
                 >
                     <AIPaintWindow onImageGenerated={handleImageGenerated} />
